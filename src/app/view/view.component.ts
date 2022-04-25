@@ -12,10 +12,20 @@ export class ViewComponent implements OnInit {
   @ContentChild('foo') foo: TemplateRef<any>;
   @ContentChild('bar') bar: TemplateRef<any>;
   @ContentChild('baz') baz: TemplateRef<any>;
-  
+
+  mode = 'foo';
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  isMode(mode: string): boolean {
+    return this.mode.indexOf(mode) != -1;
+  }
+
+  changeModeTo(mode: string): void {
+    this.mode = mode
   }
 
 }

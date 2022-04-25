@@ -1,2 +1,20 @@
-<ng-container [ngTemplateOutlet]="foo">
+<div class="btn-group">
+  <button class="btn btn-success" [disabled]="isMode('foo')" (click)="changeModeTo('foo')">
+    Foo
+  </button>
+  <button class="btn btn-success" [disabled]="isMode('bar')" (click)="changeModeTo('bar')">
+    Bar
+  </button>
+  <button class="btn btn-success" [disabled]="isMode('baz')" (click)="changeModeTo('baz')">
+    Baz
+  </button>
+</div>
+
+<hr/>
+
+<ng-container [ngTemplateOutlet]="foo" *ngIf="isMode('foo')">
+</ng-container>
+<ng-container [ngTemplateOutlet]="bar" *ngIf="isMode('bar')">
+</ng-container>
+<ng-container [ngTemplateOutlet]="baz" *ngIf="isMode('baz')">
 </ng-container>
